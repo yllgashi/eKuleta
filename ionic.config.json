@@ -1,0 +1,7 @@
+{
+  "name": "eKuleta",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
