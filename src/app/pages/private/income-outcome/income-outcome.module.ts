@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { FolderPageRoutingModule } from './folder-routing.module';
+import { IncomeOutcomePageRoutingModule } from './income-outcome-routing.module';
 
-import { FolderPage } from './folder.page';
+import { IncomeOutcomePage } from './income-outcome.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    FolderPageRoutingModule
+    IncomeOutcomePageRoutingModule
   ],
-  declarations: [FolderPage]
+  declarations: [IncomeOutcomePage]
 })
-export class FolderPageModule {}
+export class IncomeOutcomePageModule {}

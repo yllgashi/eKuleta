@@ -1,22 +1,25 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './providers/guards/auth.guard';
 
 const routes: Routes = [
   {
+    canActivate: [AuthGuard],
     path: '',
-    redirectTo: 'folder/Inbox',
-    pathMatch: 'full'
+    loadChildren: () =>
+      import('./pages/private/private.module').then((m) => m.PrivateModule),
   },
   {
-    path: 'folder/:id',
-    loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
-  }
+    path: '',
+    loadChildren: () =>
+      import('./pages/public/public.module').then((m) => m.PublicModule),
+  },
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}
