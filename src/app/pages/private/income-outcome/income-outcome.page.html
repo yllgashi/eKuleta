@@ -1,3 +1,49 @@
 <app-header [title]="'Income/Outcome'"></app-header>
 
-<ion-content> </ion-content>
+<ion-content>
+  <!-- app description with img -->
+  <app-description-container
+    [isOutcome]="isOutcome"
+  ></app-description-container>
+
+  <form [formGroup]="incomeOutcomeForm" (ngSubmit)="onSubmit()">
+    <!-- price input -->
+    <div class="input-container">
+      <app-input
+        [type]="'text'"
+        [labelPosition]="'stacked'"
+        [label]="'Description'"
+        [control]="getControl('description')"
+      >
+      </app-input>
+
+      <app-input
+        [type]="'number'"
+        [labelPosition]="'stacked'"
+        [label]="'Price (€)'"
+        [control]="getControl('price')"
+      >
+      </app-input>
+    </div>
+
+    <div class="buttons-container">
+      <!-- change form type btn -->
+      <app-button
+        [type]="'button'"
+        [fill]="'clear'"
+        [text]="isOutcome ? 'Outcome instead' : 'Income instead'"
+        (clickOut)="onChangeFormType()"
+      ></app-button>
+
+      <!-- submit btn -->
+      <app-button
+        [disabled]="incomeOutcomeForm.invalid"
+        [type]="'submit'"
+        [shape]="'round'"
+        [color]="isOutcome ? 'danger' : 'success'"
+        [text]="'Submit'"
+        (clickOut)="onSubmit()"
+      ></app-button>
+    </div>
+  </form>
+</ion-content>

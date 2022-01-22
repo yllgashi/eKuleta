@@ -1,11 +1,11 @@
-.buttons-container {
+.text-description {
+  color: grey;
+}
+
+.img-with-description-container {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   margin: 20px;
-}
-
-.input-container {
-  margin: 0 20vw;
 }
