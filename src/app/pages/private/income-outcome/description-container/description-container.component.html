@@ -2,15 +2,15 @@
   <div>
     <app-icon
       *ngIf="!isOutcome"
-      [style]="'height: 30vh; width: 30vw; color: #eb445a;'"
-      [name]="'trending-down-outline'"
-    ></app-icon>
-    <app-icon
-      *ngIf="isOutcome"
       [style]="'height: 30vh; width: 30vw; color: #2dd36f;'"
       [name]="'trending-up-outline'"
     ></app-icon>
+    <app-icon
+      *ngIf="isOutcome"
+      [style]="'height: 30vh; width: 30vw; color: #eb445a;'"
+      [name]="'trending-down-outline'"
+    ></app-icon>
   </div>
 
-  <p class="text-description">{{ isOutcome ? "Income" : "Outcome" }}</p>
+  <p class="text-description">{{ isOutcome ? "Outcome" : "Income" }}</p>
 </div>

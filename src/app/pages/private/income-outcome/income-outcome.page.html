@@ -31,7 +31,7 @@
       <app-button
         [type]="'button'"
         [fill]="'clear'"
-        [text]="isOutcome ? 'Outcome instead' : 'Income instead'"
+        [text]="isOutcome ? 'Income instead' : 'Outcome instead'"
         (clickOut)="onChangeFormType()"
       ></app-button>
 
@@ -42,7 +42,6 @@
         [shape]="'round'"
         [color]="isOutcome ? 'danger' : 'success'"
         [text]="'Submit'"
-        (clickOut)="onSubmit()"
       ></app-button>
     </div>
   </form>

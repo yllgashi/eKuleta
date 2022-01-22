@@ -1,3 +1,11 @@
 <app-header [title]="'Settings'"></app-header>
 
-<ion-content> </ion-content>
+<ion-content>
+  <ion-list>
+    <app-settings-item
+      [text]="'Change currency'"
+      [callback]="onChangeCurrency.bind(this)"
+      [icon]="'cash-outline'"
+    ></app-settings-item>
+  </ion-list>
+</ion-content>
