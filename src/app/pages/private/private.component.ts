@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import User from 'src/app/model/user.model';
 import { AuthService } from 'src/app/providers/services/auth.service';
 
 @Component({
@@ -18,9 +20,22 @@ export class PrivateComponent implements OnInit {
     { title: 'Settings', url: '/settings', icon: 'options-outline' },
   ];
 
+  user: User;
+  // sub
+  userSub$: Subscription;
+
   constructor(private authService: AuthService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.fetchUser();
+  }
+
+  fetchUser(): void {
+    this.authService.user$.subscribe(res => {
+      if(!res) return;
+      this.user = res;
+    })
+  }
 
   logout(): void {
     this.authService.logout();

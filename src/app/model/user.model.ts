@@ -1,6 +1,6 @@
 export default class User {
     id: any;
-    name: any;
+    firstName: any;
     lastName: any;
     email: any;
     password: any;

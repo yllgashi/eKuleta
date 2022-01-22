@@ -1,20 +1,10 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-
-import { IonicModule } from '@ionic/angular';
-
 import { IncomeOutcomePageRoutingModule } from './income-outcome-routing.module';
-
 import { IncomeOutcomePage } from './income-outcome.page';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    IncomeOutcomePageRoutingModule
-  ],
-  declarations: [IncomeOutcomePage]
+  imports: [SharedModule, IncomeOutcomePageRoutingModule],
+  declarations: [IncomeOutcomePage],
 })
 export class IncomeOutcomePageModule {}

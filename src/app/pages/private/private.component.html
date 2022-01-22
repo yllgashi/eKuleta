@@ -2,8 +2,8 @@
   <ion-menu contentId="main-content" type="overlay">
     <ion-content>
       <ion-list id="inbox-list">
-        <ion-list-header>Inbox</ion-list-header>
-        <ion-note>hi@ionicframework.com</ion-note>
+        <ion-list-header>{{user.firstName + ' ' + user.lastName}}</ion-list-header>
+        <ion-note>{{user.email}}</ion-note>
 
         <ion-menu-toggle
           auto-hide="false"
@@ -16,7 +16,7 @@
             detail="false"
             routerLinkActive="selected"
           >
-            <ion-icon slot="start" [name]="p.icon"></ion-icon>
+            <app-icon slot="start" [name]="p.icon"></app-icon>
             <ion-label>{{ p.title }}</ion-label>
           </ion-item>
         </ion-menu-toggle>
@@ -24,14 +24,14 @@
     </ion-content>
 
     <!-- logout button -->
-    <ion-footer id="footer">
-      <ion-menu-toggle autoHide="false">
+    <app-footer>
+      <ion-menu-toggle autoHide="false" body>
         <ion-item button (click)="logout()" detail="false">
-          <ion-icon slot="start" name="log-out-outline"></ion-icon>
-          <ion-label> Log out </ion-label>
+          <app-icon slot="start" name="log-out-outline"></app-icon>
+          <app-label> Log out </app-label>
         </ion-item>
       </ion-menu-toggle>
-    </ion-footer>
+    </app-footer>
   </ion-menu>
   <ion-router-outlet id="main-content"></ion-router-outlet>
 </ion-split-pane>

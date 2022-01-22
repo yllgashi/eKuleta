@@ -60,7 +60,7 @@ export class AuthService {
       id: 1,
       email: 'yllgashi282@gmail.com',
       lastName: 'Gashi',
-      name: 'Yll',
+      firstName: 'Yll',
       accessToken: '112',
       password: '',
     };
@@ -82,7 +82,7 @@ export class AuthService {
     let currentUser: User = new User();
 
     currentUser.id = data['id'];
-    currentUser.name = data['name'];
+    currentUser.firstName = data['firstName'];
     currentUser.lastName = data['lastName'];
     currentUser.email = data['email'];
     currentUser.password = data['password'];
