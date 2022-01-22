@@ -1,0 +1,21 @@
+<ion-item ion-button (click)="showMoreInfo()">
+  <div>
+    <p class="description-text">
+      {{ transaction.description }}
+    </p>
+    <p class="price">{{ transaction.price }}</p>
+    <p class="date">
+      {{ transaction.date | date: "dd-MM-yyyy" }}
+    </p>
+  </div>
+  <ion-note
+    class="icon-container"
+    [color]="transaction.isOutcome ? 'danger' : 'success'"
+    slot="end"
+    ><app-icon
+      [name]="
+        transaction.isOutcome ? 'trending-down-outline' : 'trending-up-outline'
+      "
+    ></app-icon>
+  </ion-note>
+</ion-item>

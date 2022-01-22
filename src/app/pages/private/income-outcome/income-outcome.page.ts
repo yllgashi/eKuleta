@@ -49,11 +49,13 @@ export class IncomeOutcomePage implements OnInit {
     let price = +this.incomeOutcomeForm.controls['price'].value;
     let isOutcome = this.incomeOutcomeForm.controls['isOutcome'].value;
     let description = this.incomeOutcomeForm.controls['description'].value;
+    let date = new Date();
 
     let transaction: Transaction = {
       price,
       isOutcome,
       description,
+      date: date,
     };
 
     return transaction;
