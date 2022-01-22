@@ -1,10 +1,5 @@
 <app-header [title]="'Transactions'"></app-header>
 
 <ion-content>
-  <ion-list *ngIf="transactions">
-    <app-transaction-item
-      *ngFor="let item of transactions;"
-      [transaction]="item"
-    ></app-transaction-item>
-  </ion-list>
+  <app-transactions-list></app-transactions-list>
 </ion-content>

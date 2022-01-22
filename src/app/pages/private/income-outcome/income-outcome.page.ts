@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AlertButton } from '@ionic/angular';
 import Transaction from 'src/app/model/transaction.model';
+import { DynamicComponentsService } from 'src/app/providers/services/dynamic-components.service';
 import { TransactionsService } from 'src/app/providers/services/transactions.service';
 
 @Component({
@@ -11,7 +13,10 @@ import { TransactionsService } from 'src/app/providers/services/transactions.ser
 export class IncomeOutcomePage implements OnInit {
   isOutcome: boolean;
   incomeOutcomeForm: FormGroup;
-  constructor(private transactionsService: TransactionsService) {}
+  constructor(
+    private transactionsService: TransactionsService,
+    private dynamicComponentsService: DynamicComponentsService
+  ) {}
 
   ngOnInit() {
     this.initializeForm();
@@ -42,7 +47,30 @@ export class IncomeOutcomePage implements OnInit {
     if (this.incomeOutcomeForm.invalid) return;
 
     let transaction: Transaction = this.mapTransactionObject();
-    this.transactionsService.createTransaction(transaction);
+    this.transactionsService.createTransaction(transaction).subscribe((res) => {
+      if (res.error) return;
+      this.clearForm();
+      this.showSuccessAlert();
+    });
+  }
+
+  clearForm(): void {
+    this.incomeOutcomeForm.reset();
+  }
+
+  showSuccessAlert(): void {
+    let buttons: AlertButton[] = [
+      {
+        text: 'Cancel',
+        handler: () => {},
+      },
+    ];
+
+    this.dynamicComponentsService.showAlert({
+      header: 'Success',
+      message: 'Transaction added',
+      buttons,
+    });
   }
 
   mapTransactionObject(): Transaction {

@@ -1,4 +1,4 @@
-<ion-item ion-button (click)="showMoreInfo()">
+<app-item [clickable]="true" (clickOut)="showMoreInfo()">
   <div>
     <p class="description-text">
       {{ transaction.description }}
@@ -18,4 +18,4 @@
       "
     ></app-icon>
   </ion-note>
-</ion-item>
+</app-item>

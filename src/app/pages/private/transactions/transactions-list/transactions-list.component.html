@@ -1,0 +1,6 @@
+<ion-list *ngIf="transactions">
+  <app-transaction-item
+    *ngFor="let item of transactions"
+    [transaction]="item"
+  ></app-transaction-item>
+</ion-list>
